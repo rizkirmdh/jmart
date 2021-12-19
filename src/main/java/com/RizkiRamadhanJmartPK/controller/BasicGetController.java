@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface BasicGetController<T extends Serializable>
 {
-    public abstract JSONTable<T> getJsonTable();
+
 
     @RequestMapping(value="/page", method=RequestMethod.GET)
     public default List<T> getPage
@@ -26,4 +26,5 @@ public interface BasicGetController<T extends Serializable>
     {
         return Algorithm.<T>find(getJsonTable(), (e) -> e.id == id);
     }
+    public abstract JSONTable<T> getJsonTable();
 }

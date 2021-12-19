@@ -30,7 +30,13 @@ public class JSONTable<T> extends Vector<T>
             if (loaded != null)
                 Collections.addAll(this, loaded);
         }
-        catch (FileNotFoundException e) {}
+        catch (FileNotFoundException e) {
+            File file = new File(filepath);
+            File parent = file.getParentFile();
+            if (parent != null)
+                parent.mkdirs();
+            file.createNewFile();
+        }
     }
     
     public void writeJson() throws IOException

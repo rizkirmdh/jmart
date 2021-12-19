@@ -27,6 +27,12 @@ class AccountController implements BasicGetController<Account>
     public static final Pattern REGEX_PATTERN_EMAIL    = Pattern.compile(REGEX_EMAIL);
     public static final Pattern REGEX_PATTERN_PASSWORD = Pattern.compile(REGEX_PASSWORD);
 
+    public static final String REGEX_NAME = "(?!.*[ ]{2})[A-Z][A-Za-z0-9 ]{3,18}[A-Za-z0-9]$";
+    public static final String REGEX_PHONE_NUMBER = "[0-9]{9,12}";
+
+    public static final Pattern REGEX_PATTERN_NAME = Pattern.compile(REGEX_NAME);
+    public static final Pattern REGEX_PATTERN_PHONE_NUMBER = Pattern.compile(REGEX_PHONE_NUMBER);
+
     @Override
     public JSONTable<Account> getJsonTable() { return accountTable; }
 
